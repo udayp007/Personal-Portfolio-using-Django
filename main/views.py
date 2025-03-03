@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Profile, Project, Skill
 
+
 def home(request):
     profile = Profile.objects.first()  # Get your profile info
     projects = Project.objects.all()  # Get all projects
@@ -11,11 +12,14 @@ def home(request):
         'projects': projects,
         'skills': skills
     })
+
+
+
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
 def contact(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ContactForm(request.POST)
         print("log1",form)
         if form.is_valid():
@@ -26,6 +30,7 @@ def contact(request):
         print("log2",form)
 
     return render(request, 'main/contact.html', {'form': form})
+
 
 
 

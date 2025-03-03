@@ -11,6 +11,7 @@ class Profile(models.Model):
     email = models.EmailField()
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
+    resume = models.FileField(upload_to='resumes/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -44,8 +45,8 @@ class ContactMessage(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='skills/', null=True, blank=True, default="default.jpg")  # Ensure this line exists
-
+    image =models.ImageField(upload_to='skills/', null=True, blank=True, default="default.jpg")  # Ensure this line exists
+   
     def __str__(self):
         return self.name
 
